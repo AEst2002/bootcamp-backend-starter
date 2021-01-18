@@ -6,9 +6,7 @@ const {
 
 
 const login = async (obj, { email, password }) => {
-  const user = await User.query().findOne({
-    email,
-  })
+  const user = await User.query().findOne('email', email)
   if (!user) {
     throw new UserInputError('Invalid email or password')
   }
